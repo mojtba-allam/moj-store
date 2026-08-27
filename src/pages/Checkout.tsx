@@ -33,7 +33,7 @@ export default function Checkout() {
   const submit = () => {
     const e: Record<string, string> = {};
     if (f.name.trim().length < 5) e.name = "اكتب الاسم الكامل";
-    if (!/^01[0-9]{9}$/.test(f.phone.trim())) e.phone = "رقم موبايل مصري من 11 رقم يبدأ بـ 01";
+    if (!/^07[0-9]{9}$/.test(f.phone.trim())) e.phone = "رقم موبايل عراقي من 11 رقم يبدأ بـ 07";
     if (!f.gov) e.gov = "اختر المحافظة";
     if (f.area.trim().length < 2) e.area = "اكتب المنطقة";
     if (f.landmark.trim().length < 3) e.landmark = "اكتب أقرب نقطة دالة";
@@ -78,7 +78,7 @@ export default function Checkout() {
             </div>
             <div>
               <label className="block text-[0.7rem] font-bold text-mute mb-2">رقم الموبايل *</label>
-              <input className={`${field} num`} dir="ltr" value={f.phone} onChange={set("phone")} placeholder="01xxxxxxxxx" inputMode="numeric" />
+              <input className={`${field} num`} dir="ltr" value={f.phone} onChange={set("phone")} placeholder="07xxxxxxxxx" inputMode="numeric" />
               {errs.phone && <p className="text-[0.65rem] font-bold text-[#b0563f] mt-1.5">{errs.phone}</p>}
             </div>
             <div>
@@ -86,7 +86,7 @@ export default function Checkout() {
               <select className={`${field} ${f.gov ? "" : "text-mute/60"}`} value={f.gov} onChange={set("gov")}>
                 <option value="">اختر المحافظة</option>
                 {GOVS.map((g) => (
-                  <option key={g.name} value={g.name}>{g.name} — توصيل {g.fee} ج.م</option>
+                  <option key={g.name} value={g.name}>{g.name} — توصيل {fmt(g.fee)}</option>
                 ))}
               </select>
               {errs.gov && <p className="text-[0.65rem] font-bold text-[#b0563f] mt-1.5">{errs.gov}</p>}

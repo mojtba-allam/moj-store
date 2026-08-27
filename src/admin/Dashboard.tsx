@@ -52,7 +52,7 @@ export default function Dashboard() {
     { l: "عدد الطلبات", v: String(orders.length), s: `${active.length} نشط · ${orders.length - active.length} منتهٍ` },
     { l: "متوسط قيمة الطلب", v: fmt(Math.round(revenue / Math.max(1, active.length))), s: "شامل التوصيل" },
     { l: "قطع مباعة", v: String(itemsSold), s: `${products.length} موديل معروض` },
-    { l: "المخزون الحالي", v: String(stockTotal), s: "مخزن واحد — الدقي" },
+    { l: "المخزون الحالي", v: String(stockTotal), s: "مخزن واحد — الكرادة، بغداد" },
     { l: "تنبيهات مخزون", v: String(lowStock.length + outStock.length), s: `${outStock.length} نفدت · ${lowStock.length} منخفضة`, warn: lowStock.length + outStock.length > 0 },
   ];
 
@@ -87,9 +87,9 @@ export default function Dashboard() {
         </div>
         <div className={card}>
           <h2 className="font-bold text-sm mb-5">المبيعات حسب الفئة</h2>
-          <Donut items={byCat} centerLabel="ج.م" />
+          <Donut items={byCat} centerLabel="د.ع" />
           <h2 className="font-bold text-sm mt-8 mb-4">أعلى المحافظات</h2>
-          <HBars items={byCity.map((c) => ({ ...c, value: Math.round(c.value / 100) * 100 }))} unit=" ج.م" />
+          <HBars items={byCity.map((c) => ({ ...c, value: Math.round(c.value / 1000) * 1000 }))} unit=" د.ع" />
         </div>
       </div>
 

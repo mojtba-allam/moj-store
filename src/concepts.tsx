@@ -370,11 +370,11 @@ export function Concept4() {
           <Reveal>
             <Eyebrow>عروض الأسبوع</Eyebrow>
             <h2 className="font-display font-bold text-4xl md:text-5xl leading-[1.25] mt-4">خصم 15٪ على كل الطلبات</h2>
-            <p className="text-paper/70 font-bold text-sm mt-3">وفوقها 50 ج.م إضافية للطلبات فوق 1500 ج.م — الدفع عند الاستلام.</p>
+            <p className="text-paper/70 font-bold text-sm mt-3">وفوقها 5,000 د.ع إضافية للطلبات فوق 50,000 د.ع — الدفع عند الاستلام.</p>
             <a href="#/products/offers" className="tl mt-8 text-sm font-extrabold text-paper">تصفح العروض<IcArrow className="w-4 h-4" /></a>
           </Reveal>
           <Reveal delay={120} className="grid gap-3">
-            {[["DAW15", "خصم 15٪ — بلا حد أدنى"], ["NURO50", "خصم 50 ج.م — للطلبات فوق 1500 ج.م"]].map(([c, d]) => (
+            {[["DAW15", "خصم 15٪ — بلا حد أدنى"], ["NURO5000", "خصم 5,000 د.ع — للطلبات فوق 50,000 د.ع"]].map(([c, d]) => (
               <div key={c} className="flex items-center justify-between border border-paper/25 px-5 py-4 hover:border-olive transition-colors">
                 <span className="num font-extrabold tracking-[0.18em]" dir="ltr">{c}</span>
                 <span className="text-[0.68rem] font-bold text-paper/70">{d}</span>

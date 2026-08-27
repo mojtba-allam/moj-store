@@ -44,7 +44,7 @@ export function HBars({ items, unit = "" }: { items: { label: string; value: num
         <div key={it.label}>
           <div className="flex justify-between text-[0.68rem] font-bold mb-1.5">
             <span>{it.label}</span>
-            <span className="num text-mute">{it.value.toLocaleString("en-EG")}{unit}</span>
+            <span className="num text-mute">{it.value.toLocaleString("en-US")}{unit}</span>
           </div>
           <div className="h-2 bg-paper border border-line/60">
             <div className="h-full bg-olive transition-[width] duration-700" style={{ width: `${(it.value / max) * 100}%` }} />

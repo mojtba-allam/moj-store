@@ -1,4 +1,4 @@
-/* ================= مشكاة — البيانات ================= */
+/* ================= مشكاة — البيانات (العراق) ================= */
 
 export const IMG = {
   p1: "https://image.qwenlm.ai/generated-images/54aff61f-3590-4ab1-8cac-604e1426249f/_result.png",
@@ -42,7 +42,7 @@ export interface Product {
 export const PRODUCTS: Product[] = [
   {
     id: "hala", name: "هالة ٠١", category: "مكتبية",
-    price: 1250, oldPrice: 1500, image: IMG.p1,
+    price: 45000, oldPrice: 55000, image: IMG.p1,
     colors: [
       { name: "أسود", hex: "#2a2a28" },
       { name: "أوف-وايت", hex: "#e9e4da" },
@@ -55,7 +55,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "nafha", name: "نفحة", category: "طاولة",
-    price: 980, image: IMG.p2,
+    price: 32500, image: IMG.p2,
     colors: [
       { name: "كريمي", hex: "#e8e0d0" },
       { name: "طيني", hex: "#b0876f" },
@@ -67,7 +67,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "ghosn", name: "غصن", category: "طاولة",
-    price: 1450, oldPrice: 1700, image: IMG.p3,
+    price: 52000, oldPrice: 62500, image: IMG.p3,
     colors: [
       { name: "زيتوني", hex: "#8a8f63" },
       { name: "أسود", hex: "#2a2a28" },
@@ -80,7 +80,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "rahal", name: "رحّال", category: "محمولة",
-    price: 890, image: IMG.p4,
+    price: 27500, image: IMG.p4,
     colors: [
       { name: "رملي", hex: "#c9b896" },
       { name: "أسود", hex: "#2a2a28" },
@@ -92,7 +92,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "anbar", name: "عنبر", category: "طاولة",
-    price: 1650, image: IMG.p5,
+    price: 68000, image: IMG.p5,
     colors: [
       { name: "عنبري", hex: "#c98a3d" },
       { name: "دخاني", hex: "#6b6560" },
@@ -104,7 +104,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "qaswa", name: "قصوى", category: "مكتبية",
-    price: 760, image: IMG.p6,
+    price: 24000, image: IMG.p6,
     colors: [
       { name: "خرساني", hex: "#a8a49c" },
       { name: "فحمي", hex: "#4a4844" },
@@ -116,7 +116,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "ofoq", name: "أفق", category: "مكتبية",
-    price: 1980, oldPrice: 2300, image: IMG.p7,
+    price: 89000, oldPrice: 105000, image: IMG.p7,
     colors: [
       { name: "نحاسي", hex: "#b08d57" },
       { name: "أسود", hex: "#2a2a28" },
@@ -128,7 +128,7 @@ export const PRODUCTS: Product[] = [
   },
   {
     id: "khashab", name: "خشاب", category: "طاولة",
-    price: 1320, image: IMG.p8,
+    price: 42500, image: IMG.p8,
     colors: [
       { name: "جوز", hex: "#6b4f3a" },
       { name: "بلوط", hex: "#c4a379" },
@@ -145,28 +145,36 @@ export const BEST = PRODUCTS.filter((p) => p.isBestSeller);
 export const NEW = PRODUCTS.filter((p) => p.isNew);
 export const OFFERS = PRODUCTS.filter((p) => p.oldPrice);
 
-/* ================= المحافظات والتوصيل ================= */
+/* ================= المحافظات العراقية والتوصيل ================= */
 export interface Gov { name: string; fee: number }
 export const GOVS: Gov[] = [
-  { name: "القاهرة", fee: 50 }, { name: "الجيزة", fee: 55 }, { name: "الإسكندرية", fee: 65 },
-  { name: "القليوبية", fee: 60 }, { name: "الدقهلية", fee: 75 }, { name: "الشرقية", fee: 75 },
-  { name: "الغربية", fee: 75 }, { name: "البحيرة", fee: 80 }, { name: "كفر الشيخ", fee: 80 },
-  { name: "المنوفية", fee: 70 }, { name: "الفيوم", fee: 85 }, { name: "بني سويف", fee: 85 },
-  { name: "المنيا", fee: 90 }, { name: "أسيوط", fee: 95 }, { name: "سوهاج", fee: 100 },
-  { name: "قنا", fee: 105 }, { name: "الأقصر", fee: 110 }, { name: "أسوان", fee: 115 },
-  { name: "البحر الأحمر", fee: 110 }, { name: "الوادي الجديد", fee: 120 },
-  { name: "مطروح", fee: 110 }, { name: "شمال سيناء", fee: 115 }, { name: "جنوب سيناء", fee: 110 },
-  { name: "السويس", fee: 70 }, { name: "الإسماعيلية", fee: 70 }, { name: "بورسعيد", fee: 70 },
-  { name: "دمياط", fee: 75 },
+  { name: "بغداد", fee: 4000 },
+  { name: "البصرة", fee: 7000 },
+  { name: "نينوى", fee: 7000 },
+  { name: "أربيل", fee: 6000 },
+  { name: "السليمانية", fee: 6000 },
+  { name: "دهوك", fee: 6500 },
+  { name: "كركوك", fee: 5500 },
+  { name: "الأنبار", fee: 6000 },
+  { name: "بابل", fee: 4500 },
+  { name: "كربلاء", fee: 5000 },
+  { name: "النجف", fee: 5000 },
+  { name: "القادسية", fee: 5500 },
+  { name: "المثنى", fee: 6500 },
+  { name: "ذي قار", fee: 6000 },
+  { name: "ميسان", fee: 6000 },
+  { name: "واسط", fee: 5000 },
+  { name: "صلاح الدين", fee: 6000 },
+  { name: "ديالى", fee: 5000 },
 ];
 
 /* ================= الكوبونات ================= */
 export interface Coupon { code: string; type: "percent" | "amount"; value: number; min: number; active: boolean }
 export const SEED_COUPONS: Coupon[] = [
   { code: "DAW15", type: "percent", value: 15, min: 0, active: true },
-  { code: "NURO50", type: "amount", value: 50, min: 1500, active: true },
-  { code: "MISHKAT10", type: "percent", value: 10, min: 800, active: true },
-  { code: "NUUR25", type: "percent", value: 25, min: 3000, active: false },
+  { code: "NURO5000", type: "amount", value: 5000, min: 50000, active: true },
+  { code: "MISHKAT10", type: "percent", value: 10, min: 30000, active: true },
+  { code: "NUUR25", type: "percent", value: 25, min: 120000, active: false },
 ];
 
 /* ================= الطلبات ================= */
@@ -204,63 +212,61 @@ const daysAgo = (n: number) => {
 
 export const SEED_ORDERS: Order[] = [
   {
-    no: "384721", name: "سارة عبد الرحمن", phone: "01012345678", gov: "القاهرة", area: "المعادي", landmark: "برج النيل، الدور 4",
+    no: "384721", name: "سارة عبد الرحمن", phone: "07701234567", gov: "بغداد", area: "الكرادة", landmark: "قرب الجسر المعلق، مجمع البريد",
     notes: "الاتصال قبل التسليم بساعة.",
     items: [
-      { id: "hala", name: "هالة ٠١", image: IMG.p1, color: "أسود", size: "وسط", qty: 1, price: 1250 },
-      { id: "rahal", name: "رحّال", image: IMG.p4, color: "رملي", size: "صغير", qty: 1, price: 890 },
+      { id: "hala", name: "هالة ٠١", image: IMG.p1, color: "أسود", size: "وسط", qty: 1, price: 45000 },
+      { id: "rahal", name: "رحّال", image: IMG.p4, color: "رملي", size: "صغير", qty: 1, price: 27500 },
     ],
-    subtotal: 2140, discount: 50, coupon: "NURO50", shipping: 50, total: 2140, status: "shipped", date: daysAgo(1),
+    subtotal: 72500, discount: 5000, coupon: "NURO5000", shipping: 4000, total: 71500, status: "shipped", date: daysAgo(1),
   },
   {
-    no: "384690", name: "محمد الشافعي", phone: "01198765432", gov: "الإسكندرية", area: "سموحة", landmark: "صيدلية العزبي",
-    items: [{ id: "ghosn", name: "غصن", image: IMG.p3, color: "زيتوني", size: "وسط", qty: 2, price: 1450 }],
-    subtotal: 2900, discount: 435, coupon: "DAW15", shipping: 65, total: 2530, status: "preparing", date: daysAgo(2),
+    no: "384690", name: "مهند الجبوري", phone: "07811234567", gov: "البصرة", area: "العشار", landmark: "قرب بريد العشار العام",
+    items: [{ id: "ghosn", name: "غصن", image: IMG.p3, color: "زيتوني", size: "وسط", qty: 2, price: 52000 }],
+    subtotal: 104000, discount: 15600, coupon: "DAW15", shipping: 7000, total: 95400, status: "preparing", date: daysAgo(2),
   },
   {
-    no: "384655", name: "ليلى حسن", phone: "01255551234", gov: "الجيزة", area: "الشيخ زايد", landmark: "مول العرب، بوابة 3",
-    items: [{ id: "anbar", name: "عنبر", image: IMG.p5, color: "عنبري", size: "كبير", qty: 1, price: 1650 }],
-    subtotal: 1650, discount: 0, shipping: 55, total: 1705, status: "confirmed", date: daysAgo(3),
+    no: "384655", name: "رند الحسني", phone: "07501234567", gov: "أربيل", area: "عنكاوا", landmark: "شارع 60 متري، مقابل مول فاميلي",
+    items: [{ id: "anbar", name: "عنبر", image: IMG.p5, color: "عنبري", size: "كبير", qty: 1, price: 68000 }],
+    subtotal: 68000, discount: 0, shipping: 6000, total: 74000, status: "confirmed", date: daysAgo(3),
   },
   {
-    no: "384612", name: "عمر الدسوقي", phone: "01033334444", gov: "الدقهلية", area: "المنصورة", landmark: "جامعة المنصورة",
+    no: "384612", name: "حيدر الساعدي", phone: "07711234567", gov: "النجف", area: "الحنانة", landmark: "مكتبة الرازي",
     items: [
-      { id: "nafha", name: "نفحة", image: IMG.p2, color: "كريمي", size: "وسط", qty: 1, price: 980 },
-      { id: "khashab", name: "خشاب", image: IMG.p8, color: "جوز", size: "صغير", qty: 1, price: 1320 },
+      { id: "nafha", name: "نفحة", image: IMG.p2, color: "كريمي", size: "وسط", qty: 1, price: 32500 },
+      { id: "khashab", name: "خشاب", image: IMG.p8, color: "جوز", size: "صغير", qty: 1, price: 42500 },
     ],
-    subtotal: 2300, discount: 0, shipping: 75, total: 2375, status: "delivered", date: daysAgo(5),
+    subtotal: 75000, discount: 0, shipping: 5000, total: 80000, status: "delivered", date: daysAgo(5),
   },
   {
-    no: "384598", name: "نور الهدى", phone: "01111112222", gov: "القاهرة", area: "مدينة نصر", landmark: "سيتي ستارز",
-    items: [{ id: "ofoq", name: "أفق", image: IMG.p7, color: "نحاسي", size: "كبير", qty: 1, price: 1980 }],
-    subtotal: 1980, discount: 0, shipping: 50, total: 2030, status: "delivered", date: daysAgo(7),
+    no: "384598", name: "آيات النعيمي", phone: "07801234567", gov: "بغداد", area: "المنصور", landmark: "شارع 14 رمضان",
+    items: [{ id: "ofoq", name: "أفق", image: IMG.p7, color: "نحاسي", size: "كبير", qty: 1, price: 89000 }],
+    subtotal: 89000, discount: 0, shipping: 4000, total: 93000, status: "delivered", date: daysAgo(7),
   },
   {
-    no: "384570", name: "كريم فوزي", phone: "01099998888", gov: "الغربية", area: "طنطا", landmark: "محطة القطار",
-    items: [{ id: "qaswa", name: "قصوى", image: IMG.p6, color: "خرساني", size: "صغير", qty: 2, price: 760 }],
-    subtotal: 1520, discount: 152, coupon: "MISHKAT10", shipping: 75, total: 1443, status: "cancelled", date: daysAgo(9),
+    no: "384570", name: "كرار التميمي", phone: "07721234567", gov: "واسط", area: "الكوت", landmark: "قرب جسر الكوت الحديدي",
+    items: [{ id: "qaswa", name: "قصوى", image: IMG.p6, color: "خرساني", size: "صغير", qty: 2, price: 24000 }],
+    subtotal: 48000, discount: 4800, coupon: "MISHKAT10", shipping: 5000, total: 48200, status: "cancelled", date: daysAgo(9),
   },
   {
-    no: "384534", name: "هبة سليم", phone: "01277776666", gov: "المنيا", area: "مدينة المنيا", landmark: "مستشفى الجامعة",
-    items: [{ id: "ghosn", name: "غصن", image: IMG.p3, color: "أسود", size: "كبير", qty: 1, price: 1450 }],
-    subtotal: 1450, discount: 0, shipping: 90, total: 1540, status: "returned", date: daysAgo(12),
+    no: "384534", name: "زينب الموسوي", phone: "07831234567", gov: "القادسية", area: "الديوانية", landmark: "ساحة الساعة",
+    items: [{ id: "ghosn", name: "غصن", image: IMG.p3, color: "أسود", size: "كبير", qty: 1, price: 52000 }],
+    subtotal: 52000, discount: 0, shipping: 5500, total: 57500, status: "returned", date: daysAgo(12),
   },
   {
-    no: "384501", name: "أحمد مرعي", phone: "01512348765", gov: "القاهرة", area: "المقطم", landmark: "أسانسير الهضبة",
-    items: [
-      { id: "hala", name: "هالة ٠١", image: IMG.p1, color: "زيتوني", size: "كبير", qty: 2, price: 1250 },
-    ],
-    subtotal: 2500, discount: 375, coupon: "DAW15", shipping: 50, total: 2175, status: "delivered", date: daysAgo(15),
+    no: "384501", name: "أحمد الخزرجي", phone: "07901234567", gov: "بغداد", area: "الأعظمية", landmark: "شارع عمر بن عبد العزيز",
+    items: [{ id: "hala", name: "هالة ٠١", image: IMG.p1, color: "زيتوني", size: "كبير", qty: 2, price: 45000 }],
+    subtotal: 90000, discount: 13500, coupon: "DAW15", shipping: 4000, total: 80500, status: "delivered", date: daysAgo(15),
   },
   {
-    no: "384477", name: "ياسمين عادل", phone: "01088887777", gov: "بورسعيد", area: "حي الشرق", landmark: "مبنى المحافظة",
-    items: [{ id: "khashab", name: "خشاب", image: IMG.p8, color: "بلوط", size: "وسط", qty: 1, price: 1320 }],
-    subtotal: 1320, discount: 0, shipping: 70, total: 1390, status: "exchanged", date: daysAgo(18),
+    no: "384477", name: "ياسمين الدلوي", phone: "07511234567", gov: "دهوك", area: "زاخو", landmark: "قرب جسر دلال",
+    items: [{ id: "khashab", name: "خشاب", image: IMG.p8, color: "بلوط", size: "وسط", qty: 1, price: 42500 }],
+    subtotal: 42500, discount: 0, shipping: 6500, total: 49000, status: "exchanged", date: daysAgo(18),
   },
   {
-    no: "384445", name: "مصطفى رضوان", phone: "01144443333", gov: "أسيوط", area: "شرق أسيوط", landmark: "المجمع الإداري",
-    items: [{ id: "rahal", name: "رحّال", image: IMG.p4, color: "أسود", size: "صغير", qty: 3, price: 890 }],
-    subtotal: 2670, discount: 0, shipping: 95, total: 2765, status: "delivered", date: daysAgo(21),
+    no: "384445", name: "مصطفى المشهداني", phone: "07731234567", gov: "نينوى", area: "الموصل — الجانب الأيسر", landmark: "بوابة جامعة الموصل",
+    items: [{ id: "rahal", name: "رحّال", image: IMG.p4, color: "أسود", size: "صغير", qty: 3, price: 27500 }],
+    subtotal: 82500, discount: 0, shipping: 7000, total: 89500, status: "delivered", date: daysAgo(21),
   },
 ];
 
@@ -272,8 +278,8 @@ export interface Supplier {
 }
 export const SEED_SUPPLIERS: Supplier[] = [
   {
-    id: "s1", name: "الشرق للإضاءة", contact: "أ. هشام قنديل", phone: "01022223333",
-    notes: "يفضّل التواصل صباحًا. التوريد خلال 10 أيام.",
+    id: "s1", name: "الرافدين للإضاءة — بغداد", contact: "أ. رعد السامرائي", phone: "07901112233",
+    notes: "يفضّل التواصل صباحًا. التوريد خلال 10 أيام من مخازن بغداد.",
     products: [
       { productId: "hala", suppliedQty: 40, orderedQty: 26, requestedQty: 0 },
       { productId: "ofoq", suppliedQty: 12, orderedQty: 8, requestedQty: 0 },
@@ -281,14 +287,14 @@ export const SEED_SUPPLIERS: Supplier[] = [
     comm: "ممتاز",
   },
   {
-    id: "s2", name: "بيت السيراميك", contact: "أ. منى الباز", phone: "01155556666",
+    id: "s2", name: "ورشة بيت الطين للسيراميك — كربلاء", contact: "أ. نور الخفاجي", phone: "07705556666",
     notes: "تشغيلة يدوية — الكميات محدودة كل شهر.",
     products: [{ productId: "nafha", suppliedQty: 25, orderedQty: 16, requestedQty: 0 }],
     comm: "جيد",
   },
   {
-    id: "s3", name: "NORD Import", contact: "Lina — orders@nord.ly", phone: "+218 91 555 0192",
-    notes: "شحن بحري، مدة الوصول 3–4 أسابيع.",
+    id: "s3", name: "NORD Import — تركيا", contact: "Lina — orders@nord.tr", phone: "+90 532 555 0192",
+    notes: "شحن بري عبر منفذ إبراهيم الخليل، مدة الوصول 2–3 أسابيع.",
     products: [
       { productId: "ghosn", suppliedQty: 60, orderedQty: 55, requestedQty: 30 },
       { productId: "rahal", suppliedQty: 50, orderedQty: 28, requestedQty: 20 },
@@ -297,7 +303,7 @@ export const SEED_SUPPLIERS: Supplier[] = [
     comm: "بانتظار رد",
   },
   {
-    id: "s4", name: "ورش النحاس بالقاهرة", contact: "معلم سيد", phone: "01288889999",
+    id: "s4", name: "سوق الصفافير للنحاس — بغداد", contact: "معلم جاسم الصفار", phone: "07811119999",
     notes: "قطع نحاس مصنعة حسب الطلب.",
     products: [{ productId: "anbar", suppliedQty: 20, orderedQty: 13, requestedQty: 10 }],
     comm: "جيد",
@@ -306,7 +312,7 @@ export const SEED_SUPPLIERS: Supplier[] = [
 
 /* ================= الأسئلة الشائعة ================= */
 export const FAQS = [
-  { q: "كيف يتم الدفع؟", a: "الدفع عند الاستلام فقط — كاش لمندوب التوصيل وقت استلام الطلب." },
+  { q: "كيف يتم الدفع؟", a: "الدفع عند الاستلام فقط — كاش لمندوب التوصيل وقت استلام الطلب، في كل المحافظات." },
   { q: "كم تستغرق مدة التوصيل؟", a: "من 2 إلى 5 أيام عمل حسب المحافظة، ويصلك اتصال من المندوب قبل التسليم." },
   { q: "هل يوجد ضمان؟", a: "نعم، كل مصابيح مشكاة عليها ضمان من سنة إلى 3 سنوات حسب الموديل، مكتوب في صفحة المنتج." },
   { q: "هل يمكن الإرجاع أو الاستبدال؟", a: "يمكن خلال 14 يومًا من الاستلام عبر واتساب، بشرط سلامة المنتج والتغليف الأصلي." },
@@ -316,17 +322,17 @@ export const FAQS = [
 ];
 
 /* ================= ثوابت المتجر ================= */
-export const WHATSAPP = "201012345678";
-export const STORE_PHONE = "010 1234 5678";
+export const WHATSAPP = "9647701234567";
+export const STORE_PHONE = "0770 123 4567";
 export const STORE = {
   name: "مشكاة",
   latin: "MISHKAT",
   tagline: "إضاءة صُنعت لتبقى",
-  address: "١٢ شارع النيل، الدقي، الجيزة",
+  address: "شارع السعدون، الكرادة، بغداد",
   hours: "يوميًا ١٠ صباحًا – ١٠ مساءً",
 };
 
-export const fmt = (n: number) => `${n.toLocaleString("en-EG")} ج.م`;
+export const fmt = (n: number) => `${n.toLocaleString("en-US")} د.ع`;
 export const discountPct = (p: Product) =>
   p.oldPrice ? Math.round((1 - p.price / p.oldPrice) * 100) : 0;
 

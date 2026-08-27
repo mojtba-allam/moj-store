@@ -42,7 +42,7 @@ export default function Contact() {
           <div>
             <IcWhatsApp className="w-9 h-9 text-olive" strokeWidth={1.3} />
             <h3 className="font-display font-bold text-3xl md:text-5xl leading-[1.35] mt-6">
-              أسرع رد في مصر
+              أسرع رد بالعراق
               <span className="block text-sand">يبدأ بـ«أهلًا»</span>
             </h3>
             <p className="text-paper/70 font-bold text-sm mt-4">ابعتلنا سؤالك أو رقم طلبك وهنظبطك فورًا.</p>

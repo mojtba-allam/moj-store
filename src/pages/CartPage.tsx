@@ -121,7 +121,7 @@ export default function CartPage() {
               <button onClick={applyCoupon} className="px-6 bg-ink text-paper text-[0.72rem] font-bold hover:bg-olive transition-colors">تطبيق</button>
             </div>
             {err && <p className="text-[0.68rem] font-bold text-[#b0563f] mt-2">{err}</p>}
-            <p className="text-[0.62rem] font-bold text-mute mt-2">جرّب: DAW15 (خصم 15٪) أو NURO50 (فوق 1500 ج.م)</p>
+            <p className="text-[0.62rem] font-bold text-mute mt-2">جرّب: DAW15 (خصم 15٪) أو NURO5000 (فوق 50,000 د.ع)</p>
           </div>
 
           <div className="hairline-t mt-6 pt-5 flex justify-between items-baseline">

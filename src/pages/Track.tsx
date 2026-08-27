@@ -39,13 +39,13 @@ export default function Track({ initNo = "", initPhone = "" }: { initNo?: string
           </div>
           <div>
             <label className="block text-[0.7rem] font-bold text-mute mb-2">رقم الموبايل</label>
-            <input className={field} dir="ltr" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="01xxxxxxxxx" inputMode="numeric" />
+            <input className={field} dir="ltr" value={phone} onChange={(e) => setPhone(e.target.value)} placeholder="07xxxxxxxxx" inputMode="numeric" />
           </div>
           <button onClick={search} className="h-12 px-8 bg-ink text-paper text-[0.78rem] font-bold hover:bg-olive transition-colors">تتبع</button>
         </div>
         {err && <p className="text-[0.68rem] font-bold text-[#b0563f] mt-3">{err}</p>}
-        <button onClick={() => { setNo("384721"); setPhone("01012345678"); setSearched(true); setErr(""); }} className="tl mt-4 text-[0.68rem] font-bold text-olive">
-          جرّب طلب تجريبي: 384721 / 01012345678
+        <button onClick={() => { setNo("384721"); setPhone("07701234567"); setSearched(true); setErr(""); }} className="tl mt-4 text-[0.68rem] font-bold text-olive">
+          جرّب طلب تجريبي: 384721 / 07701234567
         </button>
       </Reveal>
 

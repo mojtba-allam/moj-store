@@ -62,7 +62,7 @@ export function LifestyleGrid({ variant = 1 }: { variant?: 1 | 2 | 3 }) {
             </Reveal>
           ))}
         </div>
-        <p className="text-[0.68rem] font-bold text-mute mt-1">تصوير من منازل عملائنا — القاهرة، ٢٠٢٥</p>
+        <p className="text-[0.68rem] font-bold text-mute mt-1">تصوير من منازل عملائنا — بغداد، ٢٠٢٥</p>
       </div>
     );
   if (variant === 3)

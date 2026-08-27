@@ -244,7 +244,7 @@ export function evalCoupon(code: string, subtotal: number, coupons: Coupon[]) {
   if (subtotal < c.min)
     return {
       ok: false as const, discount: 0,
-      error: `يحتاج هذا الكوبون حد أدنى للطلب ${c.min.toLocaleString("en-EG")} ج.م`,
+      error: `يحتاج هذا الكوبون حد أدنى للطلب ${c.min.toLocaleString("en-US")} د.ع`,
     };
   const discount = c.type === "percent" ? Math.round((subtotal * c.value) / 100) : c.value;
   return { ok: true as const, discount: Math.min(discount, subtotal), coupon: c };

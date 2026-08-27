@@ -41,8 +41,8 @@ export default function Promotions() {
               {coupons.map((c) => (
                 <tr key={c.code} className={`border-b border-line/70 last:border-0 transition-opacity ${c.active ? "" : "opacity-45"}`}>
                   <td className="px-4 py-4 num tracking-widest" dir="ltr">{c.code}</td>
-                  <td className="px-4 py-4 whitespace-nowrap">{c.type === "percent" ? <span className="num">{c.value}٪</span> : <span className="num">{c.value} ج.م</span>}</td>
-                  <td className="px-4 py-4 num whitespace-nowrap">{c.min ? `${c.min.toLocaleString("en-EG")} ج.م` : "بلا حد أدنى"}</td>
+                  <td className="px-4 py-4 whitespace-nowrap">{c.type === "percent" ? <span className="num">{c.value}٪</span> : <span className="num">{c.value.toLocaleString("en-US")} د.ع</span>}</td>
+                  <td className="px-4 py-4 num whitespace-nowrap">{c.min ? `${c.min.toLocaleString("en-US")} د.ع` : "بلا حد أدنى"}</td>
                   <td className="px-4 py-4 text-mute whitespace-nowrap">في السلة والـCheckout</td>
                   <td className="px-4 py-4">
                     <span className={`px-2.5 py-1 text-[0.62rem] ${c.active ? "bg-olive/15 text-olive" : "bg-sand/60 text-mute"}`}>
@@ -74,7 +74,7 @@ export default function Promotions() {
                 <label className="block text-[0.65rem] font-bold text-mute mb-2">النوع</label>
                 <select className={field} value={f.type} onChange={(e) => setF({ ...f, type: e.target.value as Coupon["type"] })}>
                   <option value="percent">نسبة ٪</option>
-                  <option value="amount">مبلغ ج.م</option>
+                  <option value="amount">مبلغ د.ع</option>
                 </select>
               </div>
               <div>

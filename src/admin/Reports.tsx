@@ -106,7 +106,7 @@ export default function Reports() {
             </div>
             <div className="bg-surface border border-line p-6">
               <h2 className="font-bold text-sm mb-5">تحليل المدن</h2>
-              <HBars items={byCity} unit=" ج.م" />
+              <HBars items={byCity} unit=" د.ع" />
             </div>
           </div>
           <div className="bg-surface border border-line overflow-x-auto no-scrollbar">

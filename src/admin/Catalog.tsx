@@ -111,7 +111,7 @@ export function ProductForm({ initial, onClose }: { initial: Product | null; onC
             </div>
             <div className="grid grid-cols-3 gap-4">
               <div>
-                <label className={lbl}>السعر (ج.م) *</label>
+                <label className={lbl}>السعر (د.ع) *</label>
                 <input className={`${field} num`} inputMode="numeric" value={f.price || ""} onChange={(e) => set("price", parseInt(e.target.value) || 0)} />
               </div>
               <div>
@@ -321,7 +321,7 @@ export function AdminInventory() {
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
           <h1 className="font-display font-bold text-3xl md:text-4xl">المخزون</h1>
-          <p className="text-[0.72rem] font-bold text-mute mt-1.5">مخزن واحد — الدقي · بلا SKU · الحد الأقصى للشراء = المخزون الحالي</p>
+          <p className="text-[0.72rem] font-bold text-mute mt-1.5">مخزن واحد — الكرادة، بغداد · بلا SKU · الحد الأقصى للشراء = المخزون الحالي</p>
         </div>
         <div className="flex items-center gap-6">
           <div className="flex gap-6 text-[0.7rem] font-bold">
