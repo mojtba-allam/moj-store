@@ -1,1 +1,212 @@
 @import "tailwindcss";
+
+@theme {
+  --color-ink: #1c1c1a;
+  --color-paper: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-sand: #d8d1c3;
+  --color-olive: #8a8f63;
+  --color-mute: #77736b;
+  --color-line: #e5e1d8;
+  --font-display: "El Messiri", serif;
+  --font-body: "Almarai", sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  font-family: var(--font-body);
+  font-weight: 400;
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-olive);
+  color: #fff;
+}
+
+/* ---------- hairlines ---------- */
+.hairline-t { border-top: 1px solid var(--color-line); }
+.hairline-b { border-bottom: 1px solid var(--color-line); }
+.hairline-y { border-top: 1px solid var(--color-line); border-bottom: 1px solid var(--color-line); }
+
+/* ---------- text link with growing underline ---------- */
+.tl {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  cursor: pointer;
+  background: none;
+  border: none;
+  padding: 0;
+  color: inherit;
+  font: inherit;
+}
+.tl::after {
+  content: "";
+  position: absolute;
+  inset-inline-start: 0;
+  bottom: -3px;
+  height: 1px;
+  width: 100%;
+  background: currentColor;
+  transform: scaleX(0);
+  transform-origin: right;
+  transition: transform 0.35s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tl:hover::after,
+.tl:focus-visible::after,
+.tl.active::after {
+  transform: scaleX(1);
+}
+.tl-solid::after {
+  transform: scaleX(1);
+  background: var(--color-olive);
+}
+
+/* nav underline (olive active) */
+.navlink {
+  position: relative;
+  padding: 0.35rem 0;
+  transition: color 0.25s ease;
+}
+.navlink::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1.5px;
+  background: var(--color-olive);
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 0.3s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.navlink:hover::after { transform: scaleX(0.55); }
+.navlink.active { color: var(--color-olive); }
+.navlink.active::after { transform: scaleX(1); }
+
+/* ---------- scroll reveal ---------- */
+.rv {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.8s cubic-bezier(0.22, 1, 0.36, 1), transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rvd, 0ms);
+}
+.rv.on {
+  opacity: 1;
+  transform: none;
+}
+
+/* ---------- ken burns breathing ---------- */
+@keyframes kb {
+  0% { transform: scale(1) translateY(0); }
+  100% { transform: scale(1.07) translateY(-1.2%); }
+}
+.kb { animation: kb 14s ease-in-out infinite alternate; will-change: transform; }
+
+/* ---------- badge pop ---------- */
+@keyframes pop {
+  0% { transform: scale(0.4); }
+  60% { transform: scale(1.25); }
+  100% { transform: scale(1); }
+}
+.pop { animation: pop 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- toast ---------- */
+@keyframes toastIn {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.toast-in { animation: toastIn 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- page fade ---------- */
+@keyframes pageIn {
+  from { opacity: 0; transform: translateY(10px); }
+  to { opacity: 1; transform: none; }
+}
+.page-in { animation: pageIn 0.5s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- menu overlay ---------- */
+@keyframes menuIn {
+  from { opacity: 0; clip-path: inset(0 0 100% 0); }
+  to { opacity: 1; clip-path: inset(0 0 0% 0); }
+}
+.menu-in { animation: menuIn 0.45s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- modal ---------- */
+@keyframes modalIn {
+  from { opacity: 0; transform: translateY(24px) scale(0.98); }
+  to { opacity: 1; transform: none; }
+}
+.modal-in { animation: modalIn 0.4s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- accordion ---------- */
+.acc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.4s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.acc-body.open { grid-template-rows: 1fr; }
+.acc-inner { overflow: hidden; }
+
+/* ---------- image hover ---------- */
+.imgz { overflow: hidden; }
+.imgz img {
+  transition: transform 0.9s cubic-bezier(0.22, 1, 0.36, 1), opacity 0.5s ease;
+}
+.imgz:hover img { transform: scale(1.045); }
+
+/* ---------- marquee (concept 02 giant type) ---------- */
+@keyframes drift {
+  from { transform: translateX(0); }
+  to { transform: translateX(50%); }
+}
+.drift { animation: drift 30s linear infinite; }
+
+/* ---------- misc ---------- */
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+input, select, textarea {
+  outline: none;
+}
+input:focus-visible, select:focus-visible, textarea:focus-visible {
+  border-color: var(--color-olive) !important;
+  box-shadow: 0 0 0 3px color-mix(in srgb, var(--color-olive) 15%, transparent);
+}
+
+button { cursor: pointer; }
+
+.num { font-variant-numeric: tabular-nums; }
+
+/* timeline */
+.tl-dot {
+  width: 13px; height: 13px; border-radius: 999px;
+  border: 2px solid var(--color-line);
+  background: var(--color-paper);
+  position: relative; z-index: 1;
+  transition: all 0.3s ease;
+}
+.tl-dot.done { border-color: var(--color-olive); background: var(--color-olive); }
+.tl-dot.current { border-color: var(--color-ink); background: var(--color-paper); box-shadow: 0 0 0 4px color-mix(in srgb, var(--color-olive) 20%, transparent); }
+.tl-dot.final { border-color: #b0563f; background: #b0563f; }
+
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area { position: absolute; inset: 0; width: 100%; }
+  .no-print { display: none !important; }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  .rv { opacity: 1; transform: none; transition: none; }
+  .kb, .drift, .pop { animation: none !important; }
+  *, *::before, *::after { transition-duration: 0.01ms !important; animation-duration: 0.01ms !important; }
+}
