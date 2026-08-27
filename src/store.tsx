@@ -1,5 +1,5 @@
 import React, { createContext, useCallback, useContext, useEffect, useMemo, useRef, useState } from "react";
-import { Coupon, Order, OrderStatus, PRODUCTS, Product, SEED_COUPONS, SEED_ORDERS } from "./data";
+import { Coupon, Order, OrderStatus, PRODUCTS, Product, SEED_COUPONS, SEED_ORDERS, SEED_SUPPLIERS, Supplier } from "./data";
 
 /* ================= Hash Router ================= */
 export const parseHash = () => {
@@ -44,6 +44,11 @@ interface StoreCtx {
   toggleCoupon: (code: string) => void;
   products: Product[];
   setStock: (id: string, stock: number) => void;
+  upsertProduct: (p: Product) => void;
+  removeProduct: (id: string) => void;
+  suppliers: Supplier[];
+  upsertSupplier: (s: Supplier) => void;
+  removeSupplier: (id: string) => void;
   toasts: Toast[];
   toast: (msg: string) => void;
 }
@@ -75,9 +80,13 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   const [orders, setOrders] = useState<Order[]>(() => load("mishkat:orders", SEED_ORDERS));
   const [coupons, setCoupons] = useState<Coupon[]>(() => load("mishkat:coupons", SEED_COUPONS));
   const [products, setProducts] = useState<Product[]>(() => {
-    const saved = load<Record<string, number>>("mishkat:stock", {});
-    return PRODUCTS.map((p) => ({ ...p, stock: saved[p.id] ?? p.stock }));
+    const saved = load<Product[] | null>("mishkat:products", null);
+    if (saved && Array.isArray(saved) && saved.length) return saved;
+    return PRODUCTS;
   });
+  const [suppliers, setSuppliers] = useState<Supplier[]>(() =>
+    load("mishkat:suppliers", SEED_SUPPLIERS)
+  );
   const [toasts, setToasts] = useState<Toast[]>([]);
   const tid = useRef(0);
 
@@ -85,11 +94,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
   useEffect(() => save("mishkat:compare", compare), [compare]);
   useEffect(() => save("mishkat:orders", orders), [orders]);
   useEffect(() => save("mishkat:coupons", coupons), [coupons]);
-  useEffect(() => {
-    const map: Record<string, number> = {};
-    products.forEach((p) => (map[p.id] = p.stock));
-    save("mishkat:stock", map);
-  }, [products]);
+  useEffect(() => save("mishkat:products", products), [products]);
+  useEffect(() => save("mishkat:suppliers", suppliers), [suppliers]);
 
   const toast = useCallback((msg: string) => {
     const id = ++tid.current;
@@ -176,6 +182,32 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     setProducts((ps) => ps.map((p) => (p.id === id ? { ...p, stock: Math.max(0, stock) } : p)));
   }, []);
 
+  const upsertProduct = useCallback((p: Product) => {
+    setProducts((ps) => {
+      const i = ps.findIndex((x) => x.id === p.id);
+      if (i >= 0) return ps.map((x, xi) => (xi === i ? p : x));
+      return [p, ...ps];
+    });
+  }, []);
+
+  const removeProduct = useCallback((id: string) => {
+    setProducts((ps) => ps.filter((p) => p.id !== id));
+    setCart((c) => c.filter((i) => i.id !== id));
+    setCompare((c) => c.filter((x) => x !== id));
+  }, []);
+
+  const upsertSupplier = useCallback((s: Supplier) => {
+    setSuppliers((ss) => {
+      const i = ss.findIndex((x) => x.id === s.id);
+      if (i >= 0) return ss.map((x, xi) => (xi === i ? s : x));
+      return [s, ...ss];
+    });
+  }, []);
+
+  const removeSupplier = useCallback((id: string) => {
+    setSuppliers((ss) => ss.filter((s) => s.id !== id));
+  }, []);
+
   const subtotal = useMemo(
     () =>
       cart.reduce((s, i) => {
@@ -191,7 +223,8 @@ export function StoreProvider({ children }: { children: React.ReactNode }) {
     compare, toggleCompare,
     orders, placeOrder, setStatus,
     coupons, addCoupon, toggleCoupon,
-    products, setStock,
+    products, setStock, upsertProduct, removeProduct,
+    suppliers, upsertSupplier, removeSupplier,
     toasts, toast,
   };
   return <Ctx.Provider value={value}>{children}</Ctx.Provider>;

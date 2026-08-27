@@ -277,6 +277,31 @@ export function VideoModal({ src, title, onClose }: { src: string; title: string
   );
 }
 
+/* زر حذف بتأكيد من ضغطتين */
+export function ConfirmBtn({
+  onConfirm, label = "حذف", className = "",
+}: { onConfirm: () => void; label?: string; className?: string }) {
+  const [armed, setArmed] = useState(false);
+  useEffect(() => {
+    if (!armed) return;
+    const t = window.setTimeout(() => setArmed(false), 2600);
+    return () => window.clearTimeout(t);
+  }, [armed]);
+  return (
+    <button
+      type="button"
+      onClick={() => (armed ? (onConfirm(), setArmed(false)) : setArmed(true))}
+      className={`border px-3 py-1.5 text-[0.62rem] font-bold transition-all whitespace-nowrap ${
+        armed
+          ? "bg-[#b0563f] border-[#b0563f] text-white"
+          : "border-line bg-surface text-ink/60 hover:border-[#b0563f] hover:text-[#b0563f]"
+      } ${className}`}
+    >
+      {armed ? "تأكيد الحذف؟" : label}
+    </button>
+  );
+}
+
 /* أكورديون */
 export function Accordion({ items }: { items: { q: string; a: string }[] }) {
   const [open, setOpen] = useState<number | null>(0);

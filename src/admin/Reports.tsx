@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { SEED_SUPPLIERS, fmt, productById } from "../data";
+import { fmt } from "../data";
 import { useStore } from "../store";
 import { IcDownload, IcPrint } from "../ui";
 import { AreaChart, HBars, downloadCSV } from "./charts";
@@ -10,7 +10,8 @@ const RANGES = [
 ] as const;
 
 export default function Reports() {
-  const { orders, products } = useStore();
+  const { orders, products, suppliers } = useStore();
+  const pname = (id: string) => products.find((p) => p.id === id)?.name ?? "منتج محذوف";
   const [tab, setTab] = useState<(typeof TABS)[number]>("المبيعات");
   const [range, setRange] = useState<number>(30);
 
@@ -51,7 +52,7 @@ export default function Reports() {
       downloadCSV("المخزون", [["المنتج", "المتاح", "المباع"], ...products.map((p) => [p.name, p.stock, p.sold])]);
     else
       downloadCSV("الموردون", [["المورد", "المنتج", "المورّد", "المطلوب", "تم طلبه"],
-        ...SEED_SUPPLIERS.flatMap((s) => s.products.map((sp) => [s.name, productById(sp.productId)?.name ?? "", sp.suppliedQty, sp.requestedQty, sp.orderedQty]))]);
+        ...suppliers.flatMap((s) => s.products.map((sp) => [s.name, pname(sp.productId), sp.suppliedQty, sp.requestedQty, sp.orderedQty]))]);
   };
 
   return (
@@ -179,11 +180,11 @@ export default function Reports() {
               {["المورد", "المنتج", "المورّد سابقًا", "المطلوب", "تم طلبه", "التواصل"].map((h) => <th key={h} className="text-start px-4 py-3 font-bold">{h}</th>)}
             </tr></thead>
             <tbody>
-              {SEED_SUPPLIERS.flatMap((s) =>
+              {suppliers.flatMap((s) =>
                 s.products.map((sp) => (
                   <tr key={s.id + sp.productId} className="border-b border-line/70 last:border-0">
                     <td className="px-4 py-3">{s.name}</td>
-                    <td className="px-4 py-3">{productById(sp.productId)?.name}</td>
+                    <td className="px-4 py-3">{pname(sp.productId)}</td>
                     <td className="px-4 py-3 num">{sp.suppliedQty}</td>
                     <td className="px-4 py-3 num">{sp.requestedQty || "—"}</td>
                     <td className="px-4 py-3 num">{sp.orderedQty}</td>

@@ -1,4 +1,4 @@
-import { fmt, productById } from "../data";
+import { fmt } from "../data";
 import { useStore } from "../store";
 import { StatusPill } from "../ui";
 import { AreaChart, Donut, HBars } from "./charts";
@@ -35,7 +35,7 @@ export default function Dashboard() {
     label: c,
     color: ["#1c1c1a", "#8a8f63", "#d8d1c3"][i],
     value: active.reduce(
-      (s, o) => s + o.items.filter((it) => productById(it.id)?.category === c).reduce((x, it) => x + it.qty * it.price, 0),
+      (s, o) => s + o.items.filter((it) => products.find((p) => p.id === it.id)?.category === c).reduce((x, it) => x + it.qty * it.price, 0),
       0
     ),
   }));
