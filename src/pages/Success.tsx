@@ -17,7 +17,7 @@ export default function Success({ no }: { no: string }) {
           <IcCheck className="w-7 h-7" strokeWidth={2} />
         </span>
         <h1 className="font-display font-bold text-4xl md:text-6xl mt-8 text-ink leading-[1.3]">تم تسجيل طلبك بنجاح</h1>
-        <p className="text-mute font-bold text-sm mt-4">هنتصل بك للتأكيد، والدفع كاش عند الاستلام.</p>
+        <p className="text-mute font-bold text-sm mt-4">سنتصل بك لتأكيد الطلب، والدفع كاش عند الاستلام.</p>
       </Reveal>
 
       <Reveal delay={120} className="mt-10 bg-surface border border-line p-8">

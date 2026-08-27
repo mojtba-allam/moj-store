@@ -57,7 +57,7 @@ function SupplierForm({ initial, onClose }: { initial: Supplier | null; onClose:
           </div>
           <div>
             <label className={lbl}>الهاتف / واتساب</label>
-            <input className={`${field} num`} dir="ltr" value={f.phone} onChange={(e) => set("phone", e.target.value)} placeholder="01xxxxxxxxx" />
+            <input className={`${field} num`} dir="ltr" value={f.phone} onChange={(e) => set("phone", e.target.value)} placeholder="07xxxxxxxxx" />
           </div>
           <div>
             <label className={lbl}>حالة التواصل</label>

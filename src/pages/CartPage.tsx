@@ -36,8 +36,8 @@ export default function CartPage() {
     return (
       <div className="page-in max-w-[1440px] mx-auto px-5 py-24 md:py-32 text-center">
         <IcBag className="w-10 h-10 mx-auto text-sand" strokeWidth={1.2} />
-        <h1 className="font-display font-bold text-4xl md:text-6xl mt-6 text-ink">السلة فاضية… لسه</h1>
-        <p className="text-mute font-bold text-sm mt-4">المصابيح الحلوة مستنياك في المجموعة.</p>
+        <h1 className="font-display font-bold text-4xl md:text-6xl mt-6 text-ink">سلتك فارغة… بعد</h1>
+        <p className="text-mute font-bold text-sm mt-4">المصابيح المميزة بانتظارك في المجموعة.</p>
         <a href="#/products" className="inline-flex items-center gap-2 bg-ink text-paper text-[0.78rem] font-bold px-8 h-12 mt-10 hover:bg-olive transition-colors">
           تصفح المصابيح
           <IcArrow className="w-4 h-4" />

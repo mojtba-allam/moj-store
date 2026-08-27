@@ -20,7 +20,7 @@ export default function Checkout() {
   if (items.length === 0)
     return (
       <div className="page-in max-w-[1440px] mx-auto px-5 py-28 text-center">
-        <h1 className="font-display font-bold text-4xl md:text-5xl text-ink">السلة فاضية</h1>
+        <h1 className="font-display font-bold text-4xl md:text-5xl text-ink">السلة فارغة</h1>
         <a href="#/products" className="tl mt-8 text-sm font-bold">تصفح المصابيح<IcArrow className="w-4 h-4" /></a>
       </div>
     );

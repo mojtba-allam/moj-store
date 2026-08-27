@@ -14,7 +14,7 @@ export default function Contact() {
       <section className="max-w-[1440px] mx-auto px-5 md:px-8 py-12 md:py-16 grid lg:grid-cols-2 gap-10 items-start">
         <Reveal>
           <h2 className="font-display font-bold text-3xl md:text-4xl text-ink">خلّينا على ضوء</h2>
-          <p className="text-[0.78rem] font-bold text-mute mt-3 max-w-md leading-7">سؤال قبل الطلب، متابعة شحنة، أو استبدال — أقرب طريق لينا هو واتساب، وبنرد في نفس اليوم.</p>
+          <p className="text-[0.78rem] font-bold text-mute mt-3 max-w-md leading-7">سؤال قبل الطلب، متابعة شحنة، أو استبدال — أقرب طريق إلينا هو واتساب، ونرد في نفس اليوم.</p>
           <dl className="mt-10 hairline-t">
             {[
               { ic: <IcWhatsApp className="w-5 h-5" />, k: "واتساب", v: STORE_PHONE, href: waLink("مرحبًا، عندي استفسار.") },
@@ -45,7 +45,7 @@ export default function Contact() {
               أسرع رد بالعراق
               <span className="block text-sand">يبدأ بـ«أهلًا»</span>
             </h3>
-            <p className="text-paper/70 font-bold text-sm mt-4">ابعتلنا سؤالك أو رقم طلبك وهنظبطك فورًا.</p>
+            <p className="text-paper/70 font-bold text-sm mt-4">أرسل سؤالك أو رقم طلبك وسنرتّب كل شيء فورًا.</p>
           </div>
           <a href={waLink("مرحبًا، عندي استفسار عن منتجات مشكاة.")} target="_blank" rel="noreferrer"
             className="mt-10 inline-flex items-center justify-center gap-2.5 bg-paper text-ink text-[0.8rem] font-bold h-14 hover:bg-olive hover:text-white transition-colors">

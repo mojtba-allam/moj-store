@@ -55,6 +55,19 @@ interface StoreCtx {
 
 const Ctx = createContext<StoreCtx | null>(null);
 
+/* بيانات النسخة السابقة (قبل التحويل للسوق العراقي) تُهمل مرة واحدة */
+const DATA_VERSION = "iq-1";
+try {
+  if (localStorage.getItem("mishkat:ver") !== DATA_VERSION) {
+    ["mishkat:orders", "mishkat:coupons", "mishkat:suppliers", "mishkat:stock"].forEach((k) =>
+      localStorage.removeItem(k)
+    );
+    localStorage.setItem("mishkat:ver", DATA_VERSION);
+  }
+} catch {
+  /* ignore */
+}
+
 function load<T>(key: string, fallback: T): T {
   try {
     const raw = localStorage.getItem(key);

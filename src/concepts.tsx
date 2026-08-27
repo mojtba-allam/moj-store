@@ -333,7 +333,7 @@ export function Concept4() {
               <a href="#/products/best" className="tl text-sm font-bold text-ink">الأكثر مبيعًا</a>
             </div>
             <div className="mt-12 hairline-t grid grid-cols-3 divide-x divide-line text-center">
-              {[["8", "موديلات"], ["27", "محافظة نغطيها"], ["3 س", "ضمان أقصى"]].map(([n, l]) => (
+              {[["8", "موديلات"], ["18", "محافظة نغطيها"], ["3 س", "ضمان أقصى"]].map(([n, l]) => (
                 <div key={l} className="py-5 px-2">
                   <p className="num font-display font-bold text-2xl text-ink">{n}</p>
                   <p className="text-[0.62rem] font-bold text-mute mt-1">{l}</p>

@@ -28,7 +28,7 @@ export default function Track({ initNo = "", initPhone = "" }: { initNo?: string
 
   return (
     <div className="page-in max-w-[860px] mx-auto px-5 py-12 md:py-16">
-      <Eyebrow>بدون حساب — برقم الطلب وبس</Eyebrow>
+      <Eyebrow>بدون حساب — برقم الطلب فقط</Eyebrow>
       <h1 className="font-display font-bold text-4xl md:text-6xl mt-3 text-ink">تتبع الطلب</h1>
 
       <Reveal className="mt-8 bg-surface border border-line p-6 md:p-8">
@@ -52,7 +52,7 @@ export default function Track({ initNo = "", initPhone = "" }: { initNo?: string
       {searched && !order && (
         <Reveal className="mt-8 bg-surface border border-line p-8 text-center">
           <p className="font-display font-bold text-2xl text-ink">لم نجد طلبًا بهذه البيانات</p>
-          <p className="text-[0.72rem] font-bold text-mute mt-2">تأكد من رقم الطلب والموبايل، أو راسلنا على واتساب وهنساعدك فورًا.</p>
+          <p className="text-[0.72rem] font-bold text-mute mt-2">تأكد من رقم الطلب والموبايل، أو راسلنا على واتساب وسنساعدك فورًا.</p>
           <a href={waLink(`مرحبًا، أريد الاستفسار عن طلبي رقم #${no || "…"}`)} target="_blank" rel="noreferrer" className="tl mt-5 text-sm font-bold text-ink">
             <IcWhatsApp className="w-4 h-4 text-olive" />واتساب الدعم
           </a>
