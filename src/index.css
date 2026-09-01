@@ -1,0 +1,224 @@
+@import "tailwindcss";
+
+@theme {
+  --color-ink: #1c1c1a;
+  --color-paper: #f7f5f0;
+  --color-surface: #ffffff;
+  --color-sand: #d8d1c3;
+  --color-olive: #8a8f63;
+  --color-mute: #77736b;
+  --color-line: #e5e1d8;
+  --font-display: "Amiri", "Times New Roman", serif;
+  --font-sans: "IBM Plex Sans Arabic", "Segoe UI", Tahoma, sans-serif;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: var(--font-sans);
+  background-color: var(--color-paper);
+  color: var(--color-ink);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+
+::selection {
+  background: var(--color-olive);
+  color: #fff;
+}
+
+/* ---------- scrollbars ---------- */
+* {
+  scrollbar-width: thin;
+  scrollbar-color: var(--color-sand) transparent;
+}
+.no-scrollbar::-webkit-scrollbar { display: none; }
+.no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
+
+/* ---------- hairlines ---------- */
+.hairline-t { border-top: 1px solid var(--color-line); }
+.hairline-b { border-bottom: 1px solid var(--color-line); }
+
+/* ---------- reveal on scroll ---------- */
+.rv {
+  opacity: 0;
+  transform: translateY(26px);
+  transition: opacity 0.8s ease, transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.rv.is-in { opacity: 1; transform: none; }
+
+/* ---------- line-mask headline reveal ---------- */
+.lm { display: block; overflow: hidden; }
+.lm > span {
+  display: block;
+  transform: translateY(110%);
+  transition: transform 1s cubic-bezier(0.22, 1, 0.36, 1);
+  transition-delay: var(--rv-delay, 0ms);
+}
+.is-in .lm > span, .lm.is-in > span { transform: translateY(0); }
+
+/* ---------- ken burns ---------- */
+@keyframes kb {
+  from { transform: scale(1) translateY(0); }
+  to { transform: scale(1.08) translateY(-1.5%); }
+}
+.kenburns { animation: kb 14s ease-in-out infinite alternate; will-change: transform; }
+
+/* ---------- marquee ---------- */
+@keyframes marquee {
+  from { transform: translateX(0); }
+  to { transform: translateX(-50%); }
+}
+
+/* ---------- progress bar (video) ---------- */
+@keyframes progressbar {
+  from { width: 0%; }
+  to { width: 100%; }
+}
+.marquee-track {
+  display: flex;
+  width: max-content;
+  animation: marquee 32s linear infinite;
+}
+.marquee-track:hover { animation-play-state: paused; }
+
+/* ---------- ورق الرسم الهندسي ---------- */
+.bg-gridpaper {
+  background-image:
+    linear-gradient(rgba(138, 143, 99, 0.09) 1px, transparent 1px),
+    linear-gradient(90deg, rgba(138, 143, 99, 0.09) 1px, transparent 1px);
+  background-size: 28px 28px;
+}
+
+/* ---------- لافتة المحل المتأرجحة ---------- */
+@keyframes swing {
+  0%, 100% { transform: rotate(-2.4deg); }
+  50% { transform: rotate(2.4deg); }
+}
+.swing { animation: swing 5.5s ease-in-out infinite; transform-origin: top center; }
+
+/* ---------- نقطة «مفتوح» ---------- */
+@keyframes pulsedot {
+  0% { box-shadow: 0 0 0 0 rgba(138, 143, 99, 0.55); }
+  70% { box-shadow: 0 0 0 9px rgba(138, 143, 99, 0); }
+  100% { box-shadow: 0 0 0 0 rgba(138, 143, 99, 0); }
+}
+.pulse-dot { animation: pulsedot 2.2s ease-out infinite; }
+
+/* ---------- خطوط الأبعاد الهندسية ---------- */
+.dim {
+  transform: scaleX(0);
+  transform-origin: center;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+.dim-v {
+  transform: scaleY(0);
+  transform-origin: center;
+  transition: transform 1.2s cubic-bezier(0.22, 1, 0.36, 1) 0.35s;
+}
+.is-in .dim, .is-in .dim-v { transform: scale(1); }
+
+/* ---------- warm glow pulse (dark concept) ---------- */
+@keyframes glowpulse {
+  0%, 100% { opacity: 0.55; transform: scale(1); }
+  50% { opacity: 0.9; transform: scale(1.12); }
+}
+.glow-pulse { animation: glowpulse 5s ease-in-out infinite; }
+
+/* ---------- cart badge bump ---------- */
+@keyframes bump {
+  0% { transform: scale(1); }
+  35% { transform: scale(1.45); }
+  70% { transform: scale(0.92); }
+  100% { transform: scale(1); }
+}
+.bump { animation: bump 0.5s ease; }
+
+/* ---------- toast ---------- */
+@keyframes toastin {
+  from { opacity: 0; transform: translateY(16px); }
+  to { opacity: 1; transform: none; }
+}
+.toast-in { animation: toastin 0.35s cubic-bezier(0.22, 1, 0.36, 1); }
+
+/* ---------- text-link underline ---------- */
+.tlink {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding-bottom: 3px;
+  cursor: pointer;
+}
+.tlink::after {
+  content: "";
+  position: absolute;
+  inset-inline: 0;
+  bottom: 0;
+  height: 1px;
+  background: currentColor;
+  transform: scaleX(1);
+  transform-origin: right;
+  transition: transform 0.45s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.tlink:hover::after { transform: scaleX(0); transform-origin: left; }
+.tlink.rev::after { transform: scaleX(0); }
+.tlink.rev:hover::after { transform: scaleX(1); transform-origin: right; }
+.tlink .tlink-arrow { transition: transform 0.35s ease; }
+.tlink:hover .tlink-arrow { transform: translateX(-5px); }
+
+/* ---------- product image hover ---------- */
+.pcard-img { transition: transform 1.1s cubic-bezier(0.22, 1, 0.36, 1); }
+.group\/pc:hover .pcard-img { transform: scale(1.05); }
+.pcard-alt { opacity: 0; transition: opacity 0.7s ease; }
+.group\/pc:hover .pcard-alt { opacity: 1; }
+
+/* ---------- accordion ---------- */
+.acc-body {
+  display: grid;
+  grid-template-rows: 0fr;
+  transition: grid-template-rows 0.5s cubic-bezier(0.22, 1, 0.36, 1);
+}
+.acc-body.open { grid-template-rows: 1fr; }
+.acc-body > div { overflow: hidden; }
+
+/* ---------- inputs ---------- */
+.field {
+  width: 100%;
+  background: var(--color-surface);
+  border: 1px solid var(--color-line);
+  padding: 0.8rem 1rem;
+  font-size: 0.9rem;
+  color: var(--color-ink);
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+.field:focus { border-color: var(--color-olive); box-shadow: 0 0 0 3px rgba(138, 143, 99, 0.12); }
+.field::placeholder { color: #b3afa5; }
+
+/* ---------- number inputs ---------- */
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button { -webkit-appearance: none; margin: 0; }
+input[type="number"] { -moz-appearance: textfield; appearance: textfield; }
+
+/* ---------- print (invoices) ---------- */
+@media print {
+  body * { visibility: hidden; }
+  .print-area, .print-area * { visibility: visible; }
+  .print-area { position: absolute; inset: 0; width: 100%; padding: 0; margin: 0; background: #fff; }
+  .no-print { display: none !important; }
+}
+
+/* ---------- reduced motion ---------- */
+@media (prefers-reduced-motion: reduce) {
+  html { scroll-behavior: auto; }
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+  .rv, .lm > span { opacity: 1 !important; transform: none !important; }
+}
